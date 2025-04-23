@@ -26,12 +26,27 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
+              "src/favicon.ico",
+              "src/android-chrome-192x192.png",
+              "src/favicon-16x16.png",
+              "src/mstile-310x150.png",
+              "src/android-chrome-512x512.png",
+              "src/favicon-32x32.png",
+              "src/mstile-310x310.png",
+              "src/apple-touch-icon.png",
+              "src/manifest.json",
+              "src/mstile-70x70.png",
+              "src/browserconfig.xml",
+              "src/mstile-144x144.png",
+              "src/safari-pinned-tab.svg",
+              "src/mstile-150x150.png",
               {
                 "glob": "**/*",
                 "input": "public"
               }
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/azure-blue.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -85,12 +100,27 @@
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
             "assets": [
+              "src/favicon.ico",
+              "src/android-chrome-192x192.png",
+              "src/favicon-16x16.png",
+              "src/mstile-310x150.png",
+              "src/android-chrome-512x512.png",
+              "src/favicon-32x32.png",
+              "src/mstile-310x310.png",
+              "src/apple-touch-icon.png",
+              "src/manifest.json",
+              "src/mstile-70x70.png",
+              "src/browserconfig.xml",
+              "src/mstile-144x144.png",
+              "src/safari-pinned-tab.svg",
+              "src/mstile-150x150.png",
               {
                 "glob": "**/*",
                 "input": "public"
               }
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/azure-blue.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -98,5 +128,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "0e411f2e-14d0-40d6-8f82-c61bc6ffab00"
   }
 }
