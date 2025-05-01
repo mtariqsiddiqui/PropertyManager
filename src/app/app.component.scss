@@ -1,36 +1,70 @@
-@use '@angular/material' as mat;
-:root {
-  @include mat.toolbar-overrides((
-    container-background-color: orange,
-    container-text-color: red,
-  ));
-}
-.sidenav-container {
-  height: 100%;
-}
+//.app-container {
+//  height: calc(100vh - 64px); /* subtract toolbar height (default is 64px) */
+//  margin-top: 64px; /* push container below toolbar */
+//}
 
-.sidenav {
-  width: 200px;
-}
 
-.sidenav .mat-toolbar {
-  //background: inherit;
-  color: var(--mat-sys-primary);
-  background: var(--mat-sys-primary-container);
-}
-
-.mat-toolbar.mat-primary {
-  color: var(--mat-sys-primary);
-  background: var(--mat-sys-primary-container);
-  position: sticky;
+.app-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
   top: 0;
-  z-index: 1;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
-.toolbar-spacer {
+//.app-is-mobile .app-toolbar {
+//  position: fixed;
+//  z-index: 2;
+//}
+
+.app-sidenav-container {
+  flex: 1 1 auto;
+  height: calc(100vh - 64px); /* subtract toolbar height (default is 64px) */
+  margin-top: 64px; /* push container below toolbar */
+}
+////.app-is-mobile .app-sidenav-container {
+////  flex: 1 0 auto;
+////}
+//mat-sidenav {
+//  width: 250px;
+//}
+
+.logo-heading {
+  padding-left: 10px;
+  //text-decoration-line: overline underline;
+  font-size: 45px;
+  font-weight: 1000;
+}
+
+.spacer {
   flex: 1 1 auto;
 }
 
-.degorder * {
-  outline: 1px solid limegreen !important;
+.dugborder{
+  border: solid 1px;
+  border-color: #90fc36;
+}
+
+/* styles.scss */
+
+.app-toolbar {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  //background: var(--mat-sys-primary);
+}
+
+
+.app-sidenav {
+  width: 320px;
+  //background: black;
+  padding-top: 25px;
+}
+
+.app-content {
+  padding: 16px;
 }

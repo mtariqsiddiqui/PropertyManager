@@ -26,7 +26,10 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
+              "src/assets",
               "src/favicon.ico",
+              "src/favicon.svg",
+              "src/sadad_logo.svg",
               "src/android-chrome-192x192.png",
               "src/favicon-16x16.png",
               "src/mstile-310x150.png",
@@ -100,7 +103,10 @@
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
             "assets": [
+              "src/assets",
               "src/favicon.ico",
+              "src/favicon.svg",
+              "src/sadad_logo.svg",
               "src/android-chrome-192x192.png",
               "src/favicon-16x16.png",
               "src/mstile-310x150.png",

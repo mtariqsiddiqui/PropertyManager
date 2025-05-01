@@ -1,0 +1,12 @@
+.nav-accordion {
+  border: none;
+  elevation: var(--mat-app-elevation-shadow-level-24);
+  border-radius: 50px;
+}
+
+mat-expansion-panel {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  border: none !important;
+  outline: none !important;
+}

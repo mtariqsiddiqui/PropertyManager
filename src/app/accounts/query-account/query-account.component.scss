@@ -1,0 +1,40 @@
+.form-container {
+  border-radius: 12px;
+  border: 1px solid var(--mat-sys-outline-variant);
+  padding: 16px 24px;
+}
+
+.app-title {
+  background: var(--mat-sys-primary-container);
+  color: var(--mat-sys-primary);
+  box-shadow: var(--mat-app-elevation-shadow-level-24);
+  padding: 12px 16px;
+  border-radius: 12px;
+  margin-bottom: 8px;
+  border-top: 1px solid var(--mat-sys-outline-variant);
+}
+
+.example-container mat-form-field + mat-form-field {
+  margin-left: 8px;
+}
+
+.example-container mat-form-field {
+  width: 220px;
+}
+
+.example-container form {
+  margin-bottom: 20px;
+}
+
+.example-container form > * {
+  margin: 12px 0;
+}
+
+.example-container .mat-radio-button {
+  margin: 0 12px;
+}
+
+.example-form-fields {
+  display: flex;
+  align-items: flex-start;
+}

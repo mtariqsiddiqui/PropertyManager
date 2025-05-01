@@ -1,22 +1,88 @@
-<mat-nav-list>
-<h4 mat-subheader>Accounts</h4>
-<a mat-list-item href="#">Query Accounts</a>
-<a mat-list-item href="#">Rejected Accounts</a>
-<mat-divider/>
-<h4 mat-subheader>Bills</h4>
-<a mat-list-item href="#">Query Bills</a>
-<a mat-list-item href="#">Rejected Bills</a>
-<mat-divider/>
-<h4 mat-subheader>Payments</h4>
-<a mat-list-item href="#">Query Payments</a>
-<a mat-list-item href="#">Rejected Payments</a>
-  <mat-divider/>
-  <h4 mat-subheader>Refunds</h4>
-  <a mat-list-item href="#">Query Refunds</a>
-  <mat-divider/>
-<h4 mat-subheader>Files</h4>
+<mat-accordion class="nav-accordion">
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>EBPP</mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header><mat-panel-title>Accounts</mat-panel-title></mat-expansion-panel-header>
+      <mat-nav-list>
+        <a mat-list-item routerLink="/accounts/query-account">Query Account</a>
+        <a mat-list-item routerLink="/accounts/rejected-account">Rejected Account</a>
+      </mat-nav-list>
+    </mat-expansion-panel>
 
-<a mat-list-item href="#">Query Files</a>
-<a mat-list-item href="#">UploadFiles</a>
-<mat-divider/>
-</mat-nav-list>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>Bills</mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-nav-list>
+        <a mat-list-item routerLink="/bills/query-bill">Query Bill</a>
+        <a mat-list-item routerLink="/bills/rejected-bill">Rejected Bill</a>
+      </mat-nav-list>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>Payments</mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-nav-list>
+        <a mat-list-item routerLink="/payments/query-payment">Query Payment</a>
+        <a mat-list-item routerLink="/payments/rejected-payment">Rejected Payment</a>
+      </mat-nav-list>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>Refunds</mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-nav-list>
+        <a mat-list-item routerLink="/refunds/query-refund">Query Refund</a>
+      </mat-nav-list>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>Customers</mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-nav-list>
+        <a mat-list-item routerLink="/customers/query-customer">Query Customer</a>
+      </mat-nav-list>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>Files</mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-nav-list>
+        <a mat-list-item routerLink="/files/query-files">Query Files</a>
+        <a mat-list-item routerLink="/files/upload-files">Upload Files</a>
+      </mat-nav-list>
+    </mat-expansion-panel>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>SADAD Admin</mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>Banks</mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-nav-list>
+        <a mat-list-item routerLink="/accounts/query">Create Bank</a>
+        <a mat-list-item routerLink="/accounts/rejected">Query Bank</a>
+        <a mat-list-item routerLink="/accounts/query">Create Wallet</a>
+        <a mat-list-item routerLink="/accounts/rejected">Query Wallet</a>
+      </mat-nav-list>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>Branches</mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-nav-list>
+          <a mat-list-item routerLink="/accounts/query">Create Branch</a>
+          <a mat-list-item routerLink="/accounts/rejected">Query Branch</a>
+        </mat-nav-list>
+      </mat-expansion-panel>
+    </mat-expansion-panel>
+  </mat-expansion-panel>
+</mat-accordion>
