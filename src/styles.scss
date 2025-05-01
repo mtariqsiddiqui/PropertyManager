@@ -2,14 +2,14 @@
 @use '@angular/material' as mat;
 @import './app/themes/sadad-theme.css';
 
-//html {
-//  color-scheme: light dark;
-//  @include mat.theme((
-//    color: mat.$orange-palette,
-//    typography: Roboto,
-//    density: 0
-//  ));
-//}
+html {
+  color-scheme: light dark;
+  @include mat.theme((
+    //color: mat.$orange-palette,
+    typography: Roboto,
+    density: 0
+  ));
+}
 
 html, body { height: 100%; margin: 0;}
 body { font-family: Roboto, 'Helvetica Neue', sans-serif; }

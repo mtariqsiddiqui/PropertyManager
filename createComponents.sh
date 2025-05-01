@@ -29,3 +29,7 @@ npx ng g c create-user
 npx ng g c edit-my-profile
 npx ng g c query-user
 
+npx ng generate @angular/material:address-form <component-name>
+npx ng generate @angular/material:navigation <component-name>
+npx ng generate @angular/material:table details-view
+npx ng generate @angular/material:tree project-tree

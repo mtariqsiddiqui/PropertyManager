@@ -1,7 +1,7 @@
 /* Note: Color palettes are generated from primary: #eb7625, secondary: #A9855A, tertiary: #BF9D4D */
 html {
   /* COLOR SYSTEM VARIABLES */
-  color-scheme: light dark;
+  /*color-scheme: light dark;*/
 
   /* Primary palette variables */
   --mat-sys-primary: light-dark(#9b4500, #ffb68d);

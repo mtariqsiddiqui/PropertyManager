@@ -3,6 +3,9 @@ import {LoginComponent} from './login/login.component';
 import {ApplicationDashboardComponent} from './application-dashboard/application-dashboard.component';
 import {MaintenanceDashboardComponent} from './maintenance-dashboard/maintenance-dashboard.component';
 import {ProjectOnboardingComponent} from './project-onboarding/project-onboarding.component';
+import {ProjectTreeComponent} from "./project-tree/project-tree.component";
+import {DetailsViewComponent} from "./details-view/details-view.component";
+import {NavTestComponent} from "./nav-test/nav-test.component";
 
 export const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -19,6 +22,9 @@ export const routes: Routes = [
   { path: 'dashboard', component: ApplicationDashboardComponent },
   { path: 'main-dashboard', component: MaintenanceDashboardComponent },
   { path: 'project-onboarding', component: ProjectOnboardingComponent },
+  { path: 'details-view', component: DetailsViewComponent },
+  { path: 'project-tree', component: ProjectTreeComponent },
+  { path: 'nav-test', component: NavTestComponent },
 
   // End of Testing of components directly
   { path: '**', loadComponent: () => import( './page-not-found/page-not-found.component').then(m => m.PageNotFoundComponent) }
