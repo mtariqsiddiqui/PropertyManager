@@ -307,10 +307,6 @@
       "name": "Saudi Electricity Company"
     },
     {
-      "id": "090",
-      "name": "MOI_RS"
-    },
-    {
       "id": "138",
       "name": "NWC"
     },
@@ -319,16 +315,8 @@
       "name": "SRO"
     },
     {
-      "id": "075",
-      "name": "MOT"
-    },
-    {
       "id": "291",
       "name": "King Khalid Military Academy"
-    },
-    {
-      "id": "580",
-      "name": "Gulf Union"
     },
     {
       "id": "228",
@@ -360,7 +348,7 @@
     },
     {
       "id": "100",
-      "name": "Test"
+      "name": "The Updated Biller"
     },
     {
       "id": "121",
@@ -4003,10 +3991,6 @@
       "name": "NewSubBillerTest"
     },
     {
-      "id": "10867",
-      "name": "NewSubBillerTest"
-    },
-    {
       "id": "10869",
       "name": "NewSubBillerTest"
     },
@@ -4139,12 +4123,8 @@
       "name": "Sanity"
     },
     {
-      "id": "10937",
-      "name": "Sanity"
-    },
-    {
-      "id": "10939",
-      "name": "Sanity"
+      "id": "0001",
+      "name": "The New STC Company"
     }
   ],
   "aggregators": [
@@ -4329,6 +4309,162 @@
     {
       "id": "ALVPJ",
       "name": "Sanity"
+    }
+  ],
+  "tickets": [
+    {
+      "id": "4",
+      "assignedUser": {
+        "userId": 1,
+        "mobileNumber": "",
+        "email": "user1@gmail.com",
+        "password": "1234",
+        "fullName": "User1"
+      },
+      "project": {
+        "id": 2,
+        "name": "Askan Al Mazar"
+      },
+      "block": {
+        "id": 5,
+        "name": "Project 2 - Tower 3"
+      },
+      "unit": {
+        "id": 11,
+        "name": "Apartment 3"
+      },
+      "description": "Ticket number 2",
+      "status": {
+        "id": 4,
+        "statusDesc": "NEW"
+      },
+      "severity": {
+        "id": 1,
+        "severityDesc": "CRITICAL"
+      },
+      "createTs": "2025-04-22T15:07:45.797264",
+      "updateTs": "2025-04-22T15:07:45.797264",
+      "createUser": 1,
+      "updateUser": 1,
+      "ticketDetails": [
+        {
+          "id": 3,
+          "ticketId": 4,
+          "description": "Ticket detail description 2",
+          "status": {
+            "id": 5,
+            "name": "IN_PROGRESS"
+          },
+          "createTs": "2025-04-23T13:06:25.276899",
+          "updateTs": "2025-04-23T13:06:25.276899",
+          "createUser": 1,
+          "updateUser": 1
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "assignedUser": {
+        "userId": 1,
+        "mobileNumber": "",
+        "email": "user1@gmail.com",
+        "password": "1234",
+        "fullName": "User1"
+      },
+      "project": {
+        "id": 2,
+        "name": "Askan Al Mazar"
+      },
+      "block": {
+        "id": 6,
+        "name": "Project 2 - Tower 4"
+      },
+      "unit": {
+        "id": 16,
+        "name": "Apartment 12"
+      },
+      "description": "Ticket number 3",
+      "status": {
+        "id": 4,
+        "statusDesc": "NEW"
+      },
+      "severity": {
+        "id": 1,
+        "severityDesc": "CRITICAL"
+      },
+      "createTs": "2025-04-22T15:07:45.797264",
+      "updateTs": "2025-04-22T15:07:45.797264",
+      "createUser": 1,
+      "updateUser": 1,
+      "ticketDetails": null
+    },
+    {
+      "id": "3",
+      "assignedUser": {
+        "userId": 1,
+        "mobileNumber": "",
+        "email": "user1@gmail.com",
+        "password": "1234",
+        "fullName": "User1"
+      },
+      "project": {
+        "id": 2,
+        "name": "Askan Al Mazar"
+      },
+      "block": {
+        "id": 2,
+        "name": "Tower 1"
+      },
+      "unit": {
+        "id": 1,
+        "name": "Apartment 1"
+      },
+      "description": "Ticket number 1",
+      "status": {
+        "id": 4,
+        "statusDesc": "NEW"
+      },
+      "severity": {
+        "id": 1,
+        "severityDesc": "CRITICAL"
+      },
+      "createTs": "2025-04-22T15:07:45.797264",
+      "updateTs": "2025-04-22T15:07:45.797264",
+      "createUser": 1,
+      "updateUser": 1,
+      "ticketDetails": [
+        {
+          "id": 2,
+          "ticketId": 3,
+          "description": "Ticket detail description 1",
+          "status": {
+            "id": 4,
+            "name": "NEW"
+          },
+          "createTs": "2025-04-23T13:06:25.276899",
+          "updateTs": "2025-04-23T13:06:25.276899",
+          "createUser": 1,
+          "updateUser": 1
+        }
+      ]
+    }
+  ],
+  "ticketSummary": [
+    {
+      "status": {
+        "id": 4,
+        "name": "NEW"
+      },
+      "ticketCount": 8,
+      "id": "4c4d"
+    },
+    {
+      "status": {
+        "id": 5,
+        "name": "IN_PROGRESS"
+      },
+      "ticketCount": 2,
+      "id": "cef3"
     }
   ]
 }

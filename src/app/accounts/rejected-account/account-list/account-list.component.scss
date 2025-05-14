@@ -4,6 +4,8 @@
 }
 
 mat-list {
+  active-indicator-color: --mat-sys-secondary-container;
+  list-item-label-text-color: red;
   width: 250px;
   background: #fafafa;
   border: 1px solid #ddd;

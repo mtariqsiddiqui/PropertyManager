@@ -1,0 +1,18 @@
+<p>account-list works!</p>
+<div class="account-layout">
+  <mat-list role="dialog">
+    <h3 mat-subheader>Accounts</h3>
+    @for (acc of accounts$ | async; track acc.id) {
+      <mat-list-item (click)="selectAccount(acc)">
+        {{ acc.name }} - ₹{{ acc.balance }}
+      </mat-list-item>
+    }
+  </mat-list>
+
+  <mat-card *ngIf="selectedAccount" class="account-detail">
+    <mat-card-title>{{ selectedAccount?.name }}</mat-card-title>
+    <mat-card-content>
+      Balance: ₹{{ selectedAccount?.balance }}
+    </mat-card-content>
+  </mat-card>
+</div>

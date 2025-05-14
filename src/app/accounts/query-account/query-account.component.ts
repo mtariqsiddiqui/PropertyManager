@@ -9,32 +9,37 @@ import {FormsModule} from '@angular/forms';
 import {IBiller} from '../../models/partner';
 import {PartnerService} from '../../services/partner.service';
 import {Observable} from 'rxjs';
+import {CommonModule} from '@angular/common';
 
 @Component({
   selector: 'app-query-account',
-  imports: [MatFormFieldModule, MatInputModule, MatIconModule, MatSelectModule, FormsModule,],
+  imports: [MatFormFieldModule, MatInputModule, MatIconModule, MatSelectModule, FormsModule, CommonModule],
   templateUrl: './query-account.component.html',
+  standalone: true,
   styleUrl: './query-account.component.scss'
 })
 export class QueryAccountComponent implements OnInit {
   partnerService = inject(PartnerService);
-  private _billers!: Observable<Object> = [];
-
+  billers: Observable<IBiller[]>;
   queryAccountInput: IQueryAccountInput | undefined;
 
+  constructor() {
+    this.billers = new Observable<IBiller[]>();
+  }
+
   ngOnInit(): void {
-    this._billers = this.partnerService.getBillers()
+    this.billers = this.partnerService.getBillers()
     throw new Error('Method not implemented.');
   }
 
-  constructor() {
-  }
-
-
-
 }
 
-interface IQueryAccountInput {
+export class IQueryAccountInput {
   partnerKey: string;
   accountKey: string;
+
+  constructor() {
+    this.partnerKey = '';
+    this.accountKey = '';
+  }
 }

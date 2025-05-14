@@ -15,6 +15,8 @@ import {MatTooltip, MatTooltipModule} from '@angular/material/tooltip';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatExpansionModule } from '@angular/material/expansion';
+import {AccountService} from './services/account.service';
+import {PartnerService} from './services/partner.service';
 
 @Component({
   selector: 'app-root',
@@ -43,7 +45,11 @@ export class AppComponent {
       shareReplay()
     );
 
+  accountService = inject(AccountService);
+  partnerService  = inject(PartnerService);
   constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
     iconRegistry.addSvgIcon('favicon.svg', sanitizer.bypassSecurityTrustResourceUrl('sadad_logo.svg'));
+    (window as any).accountService = this.accountService;
+    (window as any).partnerService = this.partnerService;
   }
 }

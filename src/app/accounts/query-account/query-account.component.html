@@ -3,19 +3,19 @@
 <div class="form-container">
 <!--  <div class="app-title"></div>-->
   <h2>Query Account</h2>
-  <hr>
+<!--  <hr>-->
   <form>
     <h4>mat-select</h4>
     <mat-form-field>
       <mat-label>Biller Name</mat-label>
-      <mat-select [(ngModel)]="queryAccountInput.partnerKey" name="billerName">
-        @for (biller of billers; track biller.id) {
+      <mat-select [ngModel]="queryAccountInput?.partnerKey" name="billerName">
+        @for (biller of billers | async; track biller.id) {
           <mat-option [value]="biller.id">{{biller.name}}</mat-option>
         }
       </mat-select>
     </mat-form-field>
 
-    <p>Selected PartnerKey is {{ queryAccountInput.partnerKey }}</p>
+    <p>Selected PartnerKey is {{ queryAccountInput?.partnerKey }}</p>
 
     <p>
       <mat-form-field appearance="fill">

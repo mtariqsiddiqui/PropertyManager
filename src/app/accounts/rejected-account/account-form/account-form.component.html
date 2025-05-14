@@ -1,0 +1,14 @@
+<p>account-form works!</p>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="outline" class="w-100">
+    <mat-label>Account Name</mat-label>
+    <input matInput formControlName="name" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="w-100">
+    <mat-label>Balance</mat-label>
+    <input matInput formControlName="balance" type="number" />
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">Add Account</button>
+</form>
