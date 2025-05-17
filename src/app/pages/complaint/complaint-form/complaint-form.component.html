@@ -1,0 +1,169 @@
+<div class="container">
+  <div class="header">
+    <a [routerLink]="['/']" class="inline-flex items-center justify-center rounded-md text-sm font-medium h-10 w-10 bg-background text-foreground border border-input">
+      <i-lucide [img]="lucidearrowleft" class="h-4 w-4"></i-lucide>
+      <span class="sr-only">Back</span>
+    </a>
+    <h1>New Complaint</h1>
+  </div>
+
+  <form [formGroup]="complaintForm" (ngSubmit)="submitTicket()" class="ticket-form">
+    <div class="form-section">
+      <h2>Complaint Details</h2>
+
+      <div class="form-group">
+        <label for="subject">Subject *</label>
+        <input
+          id="subject"
+          type="text"
+          formControlName="subject"
+          placeholder="e.g., Water Leakage in Bathroom"
+        >
+        <div class="error-message" *ngIf="complaintForm.get('subject')?.invalid && complaintForm.get('subject')?.touched">
+          Subject is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description *</label>
+        <textarea
+          id="description"
+          formControlName="description"
+          rows="5"
+          placeholder="Provide detailed information about the issue..."
+        ></textarea>
+        <div class="error-message" *ngIf="complaintForm.get('description')?.invalid && complaintForm.get('description')?.touched">
+          Description is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="priority">Priority *</label>
+        <select id="priority" formControlName="priority">
+          <option *ngFor="let priority of priorities" [value]="priority">{{ priority }}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <h2>Attached Images</h2>
+      <div class="file-upload">
+        <label for="file-upload" class="custom-file-upload">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="17 8 12 3 7 8"/>
+            <line x1="12" y1="3" x2="12" y2="15"/>
+          </svg>
+          Upload Images
+        </label>
+        <input id="file-upload" type="file" multiple (change)="onFileSelected($event)" accept="image/*">
+      </div>
+
+      <div class="selected-files" *ngIf="selectedFiles.length > 0">
+        <div class="file-item" *ngFor="let file of selectedFiles; let i = index">
+          <span>{{ file.name }}</span>
+          <button type="button" class="remove-file" (click)="removeFile(i)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"/>
+              <line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <h2>Property Information</h2>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="property">Property *</label>
+          <select id="property" formControlName="property">
+            <option value="">Select Property</option>
+            <option value="Block A">Block A</option>
+            <option value="Block B">Block B</option>
+            <option value="Block C">Block C</option>
+            <option value="Block D">Block D</option>
+          </select>
+          <div class="error-message" *ngIf="complaintForm.get('property')?.invalid && complaintForm.get('property')?.touched">
+            Property is required
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="apartment">Apartment *</label>
+          <input
+            id="apartment"
+            type="text"
+            formControlName="apartment"
+            placeholder="e.g., Apt 102"
+          >
+          <div class="error-message" *ngIf="complaintForm.get('apartment')?.invalid && complaintForm.get('apartment')?.touched">
+            Apartment is required
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="location">Location *</label>
+        <input
+          id="location"
+          type="text"
+          formControlName="location"
+          placeholder="e.g., Main Bathroom"
+        >
+        <div class="error-message" *ngIf="complaintForm.get('location')?.invalid && complaintForm.get('location')?.touched">
+          Location is required
+        </div>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <h2>Reporter Information</h2>
+
+      <div class="form-group">
+        <label for="reporterName">Name *</label>
+        <input
+          id="reporterName"
+          type="text"
+          formControlName="reporterName"
+          placeholder="Full Name"
+        >
+        <div class="error-message" *ngIf="complaintForm.get('reporterName')?.invalid && complaintForm.get('reporterName')?.touched">
+          Name is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="reporterPhone">Phone *</label>
+        <input
+          id="reporterPhone"
+          type="tel"
+          formControlName="reporterPhone"
+          placeholder="e.g., +1 (555) 123-4567"
+        >
+        <div class="error-message" *ngIf="complaintForm.get('reporterPhone')?.invalid && complaintForm.get('reporterPhone')?.touched">
+          Valid phone number is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="reporterEmail">Email *</label>
+        <input
+          id="reporterEmail"
+          type="email"
+          formControlName="reporterEmail"
+          placeholder="email@example.com"
+        >
+        <div class="error-message" *ngIf="complaintForm.get('reporterEmail')?.invalid && complaintForm.get('reporterEmail')?.touched">
+          Valid email is required
+        </div>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button type="button" class="cancel-button">Cancel</button>
+      <button type="submit" class="submit-button">Submit Ticket</button>
+    </div>
+  </form>
+</div>

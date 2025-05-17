@@ -1,0 +1,101 @@
+<div class="flex flex-col gap-6">
+  <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+    <div>
+      <h2 class="text-2xl font-bold tracking-tight">Dashboard</h2>
+      <p class="text-muted-foreground">Overview of all maintenance tickets in the system</p>
+    </div>
+    <div class="flex items-center gap-2">
+      <button class="px-4 py-2 bg-primary text-white rounded-md flex items-center">
+        <a [routerLink]="['/complaints/new']" class="inline-flex items-center justify-center rounded-md text-sm font-medium h-10 px-4 py-2 bg-primary text-primary-foreground">
+        <i-lucide [img]="lucideplus" class="mr-2 h-4 w-4" ></i-lucide>
+        New Ticket
+        </a>
+      </button>
+    </div>
+  </div>
+
+  <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+    @for (stat of stats; track stat.title) {
+      <div class="rounded-lg border bg-card text-card-foreground shadow-sm">
+        <div class="p-6 flex flex-row items-center justify-between pb-2">
+          <p class="text-sm font-medium">{{ stat.title }}</p>
+          <div class="p-2 rounded-full {{ stat.bgColor }}">
+            <i-lucide [img]="stat.image" class="{{ stat.icon }} {{ stat.color }} h-5 w-5"></i-lucide>
+          </div>
+        </div>
+        <div class="p-6 pt-0">
+          <div class="text-2xl font-bold">{{ stat.value }}</div>
+          <p class="text-xs text-muted-foreground">{{ stat.description }}</p>
+        </div>
+      </div>
+    }
+  </div>
+
+  <div class="rounded-lg border bg-card text-card-foreground shadow-sm">
+    <div class="p-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <div>
+        <h3 class="text-lg font-semibold">Open Tickets</h3>
+        <p class="text-sm text-muted-foreground">Manage your active maintenance tickets</p>
+      </div>
+      <div class="flex items-center gap-2">
+        <div class="relative">
+          <i class="lucide-search absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground"></i>
+          <input type="search" placeholder="Search tickets..." class="w-full pl-8 md:w-[300px] rounded-md border border-input bg-background px-3 py-2 text-sm" />
+        </div>
+        <button class="inline-flex items-center justify-center rounded-md text-sm font-medium h-10 px-4 py-2 bg-background text-foreground border border-input">
+          <i-lucide [img]="lucidefilter" class="lucide-filter h-4 w-4"></i-lucide>
+        </button>
+      </div>
+    </div>
+    <div class="p-6 pt-0">
+      <div class="relative w-full overflow-auto">
+        <table class="w-full caption-bottom text-sm">
+          <thead>
+          <tr class="border-b">
+            <th class="h-12 px-4 text-left align-middle font-medium">Ticket ID</th>
+            <th class="h-12 px-4 text-left align-middle font-medium">Subject</th>
+            <th class="h-12 px-4 text-left align-middle font-medium">Property</th>
+            <th class="h-12 px-4 text-left align-middle font-medium">Status</th>
+            <th class="h-12 px-4 text-left align-middle font-medium">Priority</th>
+            <th class="h-12 px-4 text-left align-middle font-medium">Date</th>
+            <th class="h-12 px-4 text-right align-middle font-medium">Actions</th>
+          </tr>
+          </thead>
+          <tbody>
+            @for (ticket of tickets; track ticket.id) {
+              <tr class="border-b">
+                <td class="p-4 align-middle font-medium">{{ ticket.id }}</td>
+                <td class="p-4 align-middle">
+                  <a [routerLink]="['/complaints', ticket.id]" class="text-blue-600 hover:underline">
+                    {{ ticket.subject }}
+                  </a>
+                </td>
+                <td class="p-4 align-middle">{{ ticket.property }}</td>
+                <td class="p-4 align-middle">
+                      <span [ngClass]="getStatusClass(ticket.status)" class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold">
+                        {{ getStatusText(ticket.status) }}
+                      </span>
+                </td>
+                <td class="p-4 align-middle">
+                      <span [ngClass]="getPriorityClass(ticket.priority)" class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold text-white">
+                        {{ getPriorityText(ticket.priority) }}
+                      </span>
+                </td>
+                <td class="p-4 align-middle">{{ ticket.date }}</td>
+                <td class="p-4 align-middle text-right">
+                  <div class="relative">
+                    <button class="inline-flex items-center justify-center rounded-md text-sm font-medium h-10 w-10 bg-transparent hover:bg-muted">
+                      <i class="lucide-more-horizontal h-4 w-4"></i>
+                      <span class="sr-only">Actions</span>
+                    </button>
+                    <!-- Dropdown menu would go here -->
+                  </div>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
