@@ -1,5 +1,11 @@
-import { Component } from "@angular/core"
-import { FormBuilder, type FormGroup, Validators, ReactiveFormsModule } from "@angular/forms"
+import {Component, inject} from "@angular/core"
+import { ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule} from '@angular/material/icon';
 import { CommonModule } from "@angular/common"
 import {LucideAngularModule, LucideArrowLeft} from 'lucide-angular';
 import {RouterLink} from '@angular/router';
@@ -7,18 +13,33 @@ import {RouterLink} from '@angular/router';
 @Component({
   selector: "app-complaint-form",
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, RouterLink, LucideAngularModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterLink, LucideAngularModule,
+    MatInputModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatCardModule, MatIconModule,
+  ],
   templateUrl: "complaint-form.component.html",
   styleUrls: ["complaint-form.component.scss"],
 })
 export class ComplaintFormComponent {
-  readonly lucidearrowleft1 = LucideArrowLeft
-  complaintForm: FormGroup
+  readonly lucidearrowleft = LucideArrowLeft;
+  readonly lucidearrowleft1 = LucideArrowLeft;
+  private formBuilder = inject(FormBuilder);
+  complaintForm: FormGroup;
   selectedFiles: File[] = []
-  priorities = ["Low", "Medium", "High"]
+  priorities = [
+    {name: "Low", value: "low"},
+    {name: "Medium", value: "medium"},
+    {name: "High", value: "high"}
+  ]
+  buildings: string[] =  [...Array(24)].map((_, i) => `Building ${i + 1}`);
+  apartments: string[] = [...Array(48)].map((_, i) => `Apartment ${i + 1}`);
 
-  constructor(private fb: FormBuilder) {
-    this.complaintForm = this.fb.group({
+
+  constructor() {
+    this.complaintForm = this.formBuilder.group({
       subject: ["", Validators.required],
       description: ["", Validators.required],
       property: ["", Validators.required],
@@ -28,7 +49,7 @@ export class ComplaintFormComponent {
       reporterName: ["", Validators.required],
       reporterPhone: ["", [Validators.required, Validators.pattern(/^\+?\d{10,15}$/)]],
       reporterEmail: ["", [Validators.required, Validators.email]],
-    })
+    });
   }
 
   onFileSelected(event: Event): void {
@@ -75,5 +96,4 @@ export class ComplaintFormComponent {
     }
   }
 
-  protected readonly lucidearrowleft = LucideArrowLeft;
 }
