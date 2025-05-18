@@ -37,7 +37,6 @@ export class ComplaintFormComponent {
   buildings: string[] =  [...Array(24)].map((_, i) => `Building ${i + 1}`);
   apartments: string[] = [...Array(48)].map((_, i) => `Apartment ${i + 1}`);
 
-
   constructor() {
     this.complaintForm = this.formBuilder.group({
       subject: ["", Validators.required],
@@ -95,5 +94,4 @@ export class ComplaintFormComponent {
       })
     }
   }
-
 }
