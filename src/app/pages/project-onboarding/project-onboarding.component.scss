@@ -1,0 +1,61 @@
+.onboarding-container {
+  width: 100%;
+  margin: 2rem auto;
+}
+
+.stepper-bg {
+  background: #fafbfc;
+  border-radius: 12px;
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+.centered-form {
+  max-width: none;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-row {
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.button-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.button-row button {
+  margin-left: 0.5rem;
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  margin: 0.5rem 0;
+}
+
+.blocks-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  height: 100%;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+.block-input {
+  width: 100%;
+}

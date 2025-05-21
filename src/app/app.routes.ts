@@ -6,6 +6,11 @@ export const routes: Routes = [
     loadComponent: () => import("./pages/dashboard/dashboard.component").then((m) => m.DashboardComponent),
   },
   {
+    path: "project-onboarding",
+    loadComponent: () =>
+      import("./pages/project-onboarding/project-onboarding.component").then((m) => m.ProjectOnboardingComponent),
+  },
+  {
     path: "complaints/new",
     loadComponent: () =>
       import("./pages/complaint/complaint-form/complaint-form.component").then((m) => m.ComplaintFormComponent),

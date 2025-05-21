@@ -1,0 +1,109 @@
+<div class="onboarding-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Project Onboarding</mat-card-title>
+      <mat-card-subtitle>Set up your new real estate project</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div class="stepper-bg">
+        <mat-stepper linear #stepper>
+          <!-- Step 1: Project Information -->
+          <mat-step [stepControl]="projectForm">
+            <ng-template matStepLabel>Project Information</ng-template>
+            <form [formGroup]="projectForm" class="centered-form">
+              <div class="form-row">
+                <mat-form-field appearance="fill" class="full-width">
+                  <mat-label>Project Name</mat-label>
+                  <input matInput formControlName="project_name" placeholder="Enter project name" required>
+                  @if (projectForm.get('project_name')?.hasError('required')) {
+                    <mat-error>
+                      Project name is required
+                    </mat-error>
+                  }
+                </mat-form-field>
+              </div>
+
+              <div class="button-row">
+                <button mat-button matStepperNext color="primary" [disabled]="projectForm.invalid">Next</button>
+              </div>
+            </form>
+          </mat-step>
+
+          <!-- Step 2: Block Configuration -->
+          <mat-step [stepControl]="blockConfigForm">
+            <ng-template matStepLabel>Block Configuration</ng-template>
+            <form [formGroup]="blockConfigForm" class="centered-form">
+              <div class="form-row">
+                <mat-form-field appearance="fill">
+                  <mat-label>Number of Blocks</mat-label>
+                  <input matInput type="number" formControlName="numberOfBlocks" min="1" max="100" required>
+                  @if (blockConfigForm.get('numberOfBlocks')?.hasError('required')) {
+                    <mat-error>
+                      Number of blocks is required
+                    </mat-error>
+                  }
+                  @if (blockConfigForm.get('numberOfBlocks')?.hasError('min')) {
+                    <mat-error>
+                      Minimum 1 block required
+                    </mat-error>
+                  }
+                  @if (blockConfigForm.get('numberOfBlocks')?.hasError('max')) {
+                    <mat-error>
+                      Maximum 100 blocks allowed
+                    </mat-error>
+                  }
+                </mat-form-field>
+              </div>
+
+              <div class="form-row">
+                <label class="mat-body-strong">Block Name Prefix:</label>
+                <mat-radio-group formControlName="prefixType" class="radio-group">
+                  <mat-radio-button value="Block">Block</mat-radio-button>
+                  <mat-radio-button value="Building">Building</mat-radio-button>
+                </mat-radio-group>
+              </div>
+
+              <div class="form-row">
+                <label class="mat-body-strong">Block Name Suffix:</label>
+                <mat-radio-group formControlName="suffixType" class="radio-group">
+                  <mat-radio-button value="Letter">Letters (A, B, C...)</mat-radio-button>
+                  <mat-radio-button value="Number">Numbers (1, 2, 3...)</mat-radio-button>
+                </mat-radio-group>
+              </div>
+
+              <div class="button-row">
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext color="primary" [disabled]="blockConfigForm.invalid">Next</button>
+              </div>
+            </form>
+          </mat-step>
+
+          <!-- Step 3: Block Names -->
+          <mat-step [stepControl]="blocksForm">
+            <ng-template matStepLabel>Block Names</ng-template>
+            <form [formGroup]="blocksForm" class="centered-form">
+              <div class="blocks-container" formArrayName="blocks">
+                @for (block of blocksArray.controls; track block) {
+                  <div [formGroupName]="$index" class="block-input">
+                    <mat-form-field appearance="fill" class="full-width">
+                      <mat-label>Block {{$index + 1}} Name</mat-label>
+                      <input matInput formControlName="block_name" required>
+                    </mat-form-field>
+                  </div>
+                }
+              </div>
+
+              <div class="button-row">
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="blocksForm.invalid">
+                  Complete
+                </button>
+              </div>
+            </form>
+          </mat-step>
+        </mat-stepper>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
