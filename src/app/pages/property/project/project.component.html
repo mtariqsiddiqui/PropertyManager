@@ -1,0 +1,112 @@
+<form [formGroup]="projectForm"  (ngSubmit)="createProject()">
+  <mat-card class="form-card">
+    <mat-card-header>
+
+      <mat-card-title>
+        <button [routerLink]="['/']" mat-icon-button aria-label="Back button to navigate to home screen.">
+          <mat-icon>arrow_back</mat-icon>
+        </button>
+        New Complaint
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Subject" formControlName="subject">
+            @if(complaintForm.controls['subject'].hasError('required')){
+              <mat-error>Subject is <strong>required</strong></mat-error>
+            }
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <textarea matInput placeholder="Description" formControlName="description"></textarea>
+            @if (complaintForm.controls['description'].hasError('required')) {
+              <mat-error>Description is <strong>required</strong></mat-error>
+            }
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <mat-select placeholder="Priority" formControlName="priority">
+              @for (p of priorities; track p.value) {
+                <mat-option [value]="p.value">{{p.name}}</mat-option>
+              }
+            </mat-select>
+            @if (complaintForm.controls['priority'].hasError('required')) {
+              <mat-error>Priority is <strong>required</strong></mat-error>
+            }
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field  class="full-width">
+            <mat-select placeholder="Building" formControlName="property">
+              @for (b of buildings; track b) {
+                <mat-option value="b">{{b}}</mat-option>
+              }
+            </mat-select>
+            @if (complaintForm.controls['property'].hasError('required')) {
+              <mat-error>Building is <strong>required</strong></mat-error>
+            }
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field  class="full-width">
+            <mat-select placeholder="Apartment" formControlName="apartment">
+              @for (a of apartments; track a) {
+                <mat-option value="a">{{a}}</mat-option>
+              }
+            </mat-select>
+            @if (complaintForm.controls['apartment'].hasError('required')) {
+              <mat-error>Apartment is <strong>required</strong></mat-error>
+            }
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <div class="row">
+        <button mat-button type="reset">Cancel</button>
+        <span class="mx-2"></span>
+        <button mat-raised-button color="primary" type="submit">Submit Ticket</button>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+</form>
+
+
+<div class="mat-elevation-z2">
+  <table mat-table class="full-width-table" matSort aria-label="Elements">
+    <!-- Id Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
+      <td mat-cell *matCellDef="let row">{{row.id}}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+      <td mat-cell *matCellDef="let row">{{row.name}}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator #paginator
+                 [length]="dataSource.data.length"
+                 [pageIndex]="0"
+                 [pageSize]="10"
+                 [pageSizeOptions]="[5, 10, 20]"
+                 aria-label="Select page">
+  </mat-paginator>
+</div>
